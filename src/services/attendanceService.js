@@ -1,23 +1,37 @@
-import axios from 'axios';
+// src/services/attendanceService.js
 
-const API_BASE_URL = 'https://your-api-url.com/api/attendance';
-
-// 保存打卡數據
+// 假設這是儲存打卡數據到伺服器的函數
 export const savePunchData = async (data) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/punch`, data);
-    console.log("打卡數據已儲存:", response.data);
+    const response = await fetch('https://your-api-endpoint.com/attendance', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error('無法儲存打卡數據');
+    }
+
+    return await response.json();
   } catch (error) {
-    console.error("打卡數據儲存失敗:", error);
+    console.error('儲存打卡數據時出錯:', error);
+    throw error;
   }
 };
 
-// 保存請假申請
-export const saveLeaveRequest = async (data) => {
+// 假設這是獲取打卡紀錄的函數
+export const fetchPunchData = async () => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/leave`, data);
-    console.log("請假數據已儲存:", response.data);
+    const response = await fetch('https://your-api-endpoint.com/attendance');
+    if (!response.ok) {
+      throw new Error('無法獲取打卡紀錄');
+    }
+    return await response.json();
   } catch (error) {
-    console.error("請假數據儲存失敗:", error);
+    console.error('獲取打卡紀錄時出錯:', error);
+    throw error;
   }
 };
