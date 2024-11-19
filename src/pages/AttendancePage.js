@@ -1,32 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AttendanceTracker from '../components/AttendanceTracker';
+import '../style.css'; // 更新為相對正確路徑
 
 function AttendancePage() {
   return (
     <div>
-      <h1>請假打卡</h1>
+      <h2>打卡＆請假頁面</h2>
       <AttendanceTracker />
-      {/* 可顯示更詳細的工時紀錄 */}
-      <div>
-        <h2>工時紀錄</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>日期</th>
-              <th>出勤狀態</th>
-              <th>工時</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>11月1日</td>
-              <td>出勤</td>
-              <td>8小時</td>
-            </tr>
-            {/* 更多紀錄 */}
-          </tbody>
-        </table>
-      </div>
+      <br />
+      <Link to="/">返回首頁</Link>
     </div>
   );
 }

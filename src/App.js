@@ -37,6 +37,21 @@ function App() {
 
   return (
     <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/finance" element={<FinancePage />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/attendance" element={<AttendancePage />} />
+          <Route path="/leave-scheduler" element={<LeaveSchedulerPage />} />
+          <Route path="/feedback" element={<FeedbackPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+
+  return (
+    <Router>
       <div className="App">
         <header className="App-header">
           <Header setPage={setPage} />

@@ -196,6 +196,113 @@ h3 {
   background-color: #f1f1f1;
 }
 
+/* 主容器 */
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* 上班日區塊 */
+.workday-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  background-color: #f9f9f9;
+}
+
+.workday-section h3 {
+  color: #333;
+  font-size: 18px;
+}
+
+.workday-section h4 {
+  color: #333;
+  font-size: 16px;
+}
+
+.workday-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.workday-section li {
+  font-size: 16px;
+  color: #555;
+}
+
+/* 代辦事項區塊 */
+.todo-section {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  background-color: #f9f9f9;
+}
+
+.todo-section h3 {
+  color: #333;
+  font-size: 18px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #4CAF50;
+}
+
+/* 代辦事項表格 */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+td {
+  font-size: 16px;
+}
+
+span[style*="green"] {
+  color: green;
+}
+
+span[style*="red"] {
+  color: red;
+}
+
+/* 上班日標記 */
+.react-calendar__tile.workday {
+  background-color: #e0e0e0;
+}
+
+
 /* 警示文字 */
 .alert {
   background-color: var(--accent-color);
@@ -221,4 +328,13 @@ h3 {
   .navbar a {
     margin: 0 var(--spacing-small);
   }
+}
+
+
+/* 主頁的樣式 */
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
 }

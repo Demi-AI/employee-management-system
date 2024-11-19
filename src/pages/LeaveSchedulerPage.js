@@ -1,11 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LeaveScheduler from '../components/LeaveScheduler';
+import '../style.css'; // 更新為相對正確路徑
 
 function LeaveSchedulerPage() {
   return (
     <div>
       <h1>劃假行事曆</h1>
       <LeaveScheduler />
+      <br />
+      <Link to="/">返回首頁</Link>
       {/* 顯示已申請的假期 */}
       <div>
         <h2>已申請假期</h2>

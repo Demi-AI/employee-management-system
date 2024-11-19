@@ -1,20 +1,15 @@
 import React from 'react';
-import CalendarComponent from '../components/Calendar';
+import { Link } from 'react-router-dom';
+import Calendar from '../components/Calendar';
+import '../style.css'; // 更新為相對正確路徑
 
 function CalendarPage() {
   return (
     <div>
-      <h1>行事曆</h1>
-      <CalendarComponent />
-      {/* 顯示該月份的事件列表 */}
-      <div>
-        <h2>本月事件</h2>
-        <ul>
-          <li>11月15日 - 公司會議</li>
-          <li>11月20日 - 截止專案提交</li>
-          {/* 可加入更多事件 */}
-        </ul>
-      </div>
+      <h2>行事曆頁面</h2>
+      <Calendar />
+      <br />
+      <Link to="/">返回首頁</Link>
     </div>
   );
 }

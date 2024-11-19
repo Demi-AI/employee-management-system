@@ -1,12 +1,16 @@
+// pages/FinancePage.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import FinanceManager from '../components/FinanceManager';
+import '../style.css'; // 更新為相對正確路徑
 
 function FinancePage() {
   return (
     <div>
-      <h1>財務管理</h1>
+      <h2>財務管理頁面</h2>
       <FinanceManager />
-      {/* 可以加入更多財務數據分析或報告的視圖 */}
+      <br />
+      <Link to="/">返回首頁</Link>
     </div>
   );
 }
