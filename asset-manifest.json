@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/employee-management-system/static/css/main.def6d196.css",
-    "main.js": "/employee-management-system/static/js/main.19d12859.js",
+    "main.css": "/employee-management-system/static/css/main.456a6b1c.css",
+    "main.js": "/employee-management-system/static/js/main.f1495e21.js",
     "static/js/453.c6fcd540.chunk.js": "/employee-management-system/static/js/453.c6fcd540.chunk.js",
     "index.html": "/employee-management-system/index.html",
-    "main.def6d196.css.map": "/employee-management-system/static/css/main.def6d196.css.map",
-    "main.19d12859.js.map": "/employee-management-system/static/js/main.19d12859.js.map",
+    "main.456a6b1c.css.map": "/employee-management-system/static/css/main.456a6b1c.css.map",
+    "main.f1495e21.js.map": "/employee-management-system/static/js/main.f1495e21.js.map",
     "453.c6fcd540.chunk.js.map": "/employee-management-system/static/js/453.c6fcd540.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.def6d196.css",
-    "static/js/main.19d12859.js"
+    "static/css/main.456a6b1c.css",
+    "static/js/main.f1495e21.js"
   ]
 }
