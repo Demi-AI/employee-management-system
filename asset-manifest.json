@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/employee-management-system/static/css/main.ea8b13d8.css",
-    "main.js": "/employee-management-system/static/js/main.6c3e8abc.js",
+    "main.css": "/employee-management-system/static/css/main.4c82d510.css",
+    "main.js": "/employee-management-system/static/js/main.15a153eb.js",
     "static/js/453.c6fcd540.chunk.js": "/employee-management-system/static/js/453.c6fcd540.chunk.js",
     "index.html": "/employee-management-system/index.html",
-    "main.ea8b13d8.css.map": "/employee-management-system/static/css/main.ea8b13d8.css.map",
-    "main.6c3e8abc.js.map": "/employee-management-system/static/js/main.6c3e8abc.js.map",
+    "main.4c82d510.css.map": "/employee-management-system/static/css/main.4c82d510.css.map",
+    "main.15a153eb.js.map": "/employee-management-system/static/js/main.15a153eb.js.map",
     "453.c6fcd540.chunk.js.map": "/employee-management-system/static/js/453.c6fcd540.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea8b13d8.css",
-    "static/js/main.6c3e8abc.js"
+    "static/css/main.4c82d510.css",
+    "static/js/main.15a153eb.js"
   ]
 }
