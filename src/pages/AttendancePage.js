@@ -9,7 +9,6 @@ function AttendancePage() {
       <h2>打卡＆請假頁面</h2>
       <AttendanceTracker />
       <br />
-      <Link to="/">返回首頁</Link>
     </div>
   );
 }

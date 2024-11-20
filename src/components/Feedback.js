@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function Feedback() {
   const [feedback, setFeedback] = useState(""); // 用戶的問題反饋
@@ -17,33 +18,54 @@ function Feedback() {
     setFeedback(""); // 清空輸入
   };
 
+  const navigate = useNavigate();  // 使用 useNavigate 來獲取導航函數
+
+  const goHome = () => {
+    navigate('/HomePage');  // 導航回首頁
+  };
+
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div className="container">
+      <h2 className="major">反饋問題系統</h2>
       {isSubmitted ? (
         // 成功訊息頁面
         <div>
-          <h2>提交成功！</h2>
+          <h2 className="major">提交成功！</h2>
           <p>感謝您的反饋，我們會盡快處理您的問題。</p>
-          <button onClick={handleGoBack} style={{ padding: "10px 20px", marginTop: "20px" }}>
+          <button onClick={handleGoBack} className="button-primary" style={{ marginTop: "20px" }}>
             返回
           </button>
         </div>
-      ) : (
+      ) :
         // 反饋輸入頁面
+
         <div>
-          <h2>問題反饋</h2>
+          {/* 新增說明區塊 */}
+          <div className="instructions">
+            <p>如果您在使用系統時遇到任何問題或有建議，請通過以下表單進行反饋。</p>
+            <ol>
+              <li>描述您遇到的問題或提供建議。</li>
+              <li>點擊「提交」按鈕將您的反饋發送給我們。</li>
+              <li>提交後，您將看到成功訊息。</li>
+            </ol>
+          </div>
+
+          <h2 className="major">問題反饋</h2>
           <textarea
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="請輸入問題描述..."
-            style={{ width: "100%", height: "100px", marginBottom: "20px", padding: "10px" }}
+            className="form-control"
+            rows="5"
           />
           <br />
-          <button onClick={handleSubmit} style={{ padding: "10px 20px" }}>
+          <button onClick={handleSubmit} className="button-primary">
             提交
           </button>
         </div>
-      )}
+      }
+      {/* 回到首頁的按鈕 */}
+      <button onClick={goHome}>回到首頁</button>
     </div>
   );
 }

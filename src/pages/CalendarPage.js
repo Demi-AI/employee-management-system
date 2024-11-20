@@ -9,7 +9,6 @@ function CalendarPage() {
       <h2>行事曆頁面</h2>
       <Calendar />
       <br />
-      <Link to="/">返回首頁</Link>
     </div>
   );
 }

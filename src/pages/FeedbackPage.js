@@ -9,7 +9,6 @@ function FeedbackPage() {
       <h1>問題回饋</h1>
       <Feedback />
       <br />
-      <Link to="/">返回首頁</Link>
       {/* 顯示過去的問題回饋 */}
       <div>
         <h2>過去回饋</h2>

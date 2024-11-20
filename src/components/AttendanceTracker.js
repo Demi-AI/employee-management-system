@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { savePunchData } from '../services/attendanceService';
+import { useNavigate } from 'react-router-dom';
 
-// 用來格式化時間為 HH:mm 格式
+// 格式化時間為 HH:mm 格式
 const formatTime = (time) => {
   const hours = time.getHours().toString().padStart(2, '0');
   const minutes = time.getMinutes().toString().padStart(2, '0');
@@ -12,85 +13,113 @@ const formatTime = (time) => {
 const calculateWorkHours = (startTime, endTime) => {
   const start = new Date(`1970-01-01T${startTime}:00`);
   const end = new Date(`1970-01-01T${endTime}:00`);
-
-  // 計算兩個時間之間的毫秒差，然後轉換為小時
   const diff = (end - start) / 1000 / 60 / 60;
-  
-  // 轉換為半小時為單位的工時
-  const workHours = Math.floor(diff * 2) / 2;  // 四捨五入到最接近的半小時
-
-  return workHours;
+  return Math.floor(diff * 2) / 2; // 四捨五入到最接近的半小時
 };
 
 function AttendanceTracker() {
-  const [attendanceRecords, setAttendanceRecords] = useState([]); // 儲存所有打卡紀錄
-  const [totalHours, setTotalHours] = useState(0); // 累積總工時
+  // 讀取 localStorage 中的打卡記錄和總時數
+  const savedRecords = JSON.parse(localStorage.getItem('attendanceRecords')) || [];
+  const savedTotalHours = savedRecords.reduce((total, record) => total + record.dailyWorkHours, 0);
+
+  const [attendanceRecords, setAttendanceRecords] = useState(savedRecords); // 打卡紀錄
+  const [totalHours, setTotalHours] = useState(savedTotalHours); // 累積總工時
 
   const handlePunch = () => {
     const punchTime = new Date();
     const date = punchTime.toLocaleDateString();
-    const time = formatTime(punchTime);  // 使用 HH:mm 格式
+    const time = formatTime(punchTime);
 
-    // 若打卡紀錄已經存在於當天，更新上班/下班時間
     setAttendanceRecords((prevRecords) => {
       const updatedRecords = [...prevRecords];
-      const existingRecord = updatedRecords.find(record => record.date === date);
+      const existingRecord = updatedRecords.find((record) => record.date === date);
 
       if (existingRecord) {
-        // 若已經有打卡紀錄，則更新下班時間
+        // 更新下班時間
         existingRecord.punchTimes.push(time);
-        existingRecord.endTime = time; // 更新下班時間
+        existingRecord.endTime = time;
 
         // 計算當日工時
         const dailyWorkHours = calculateWorkHours(existingRecord.startTime, time);
+        const additionalHours = dailyWorkHours - existingRecord.dailyWorkHours;
         existingRecord.dailyWorkHours = dailyWorkHours;
 
-        // 更新當月總時數
-        setTotalHours((prevTotal) => prevTotal + dailyWorkHours);
+        // 更新累積總工時
+        setTotalHours((prevTotal) => prevTotal + additionalHours);
       } else {
-        // 若當天沒有打卡紀錄，新增當天的打卡紀錄
+        // 新增當天的打卡紀錄
         updatedRecords.push({
           date,
           punchTimes: [time],
-          startTime: time,  // 第一次打卡時間為上班時間
-          endTime: time,    // 第一次打卡時間也為下班時間
-          dailyWorkHours: 0,  // 初始工時為0
+          startTime: time,
+          endTime: time,
+          dailyWorkHours: 0,
         });
       }
 
       // 儲存打卡數據到伺服器
       savePunchData({ date, punchTime });
+
+      // 儲存打卡數據到 localStorage
+      localStorage.setItem('attendanceRecords', JSON.stringify(updatedRecords));
       return updatedRecords;
     });
   };
 
+  const navigate = useNavigate();  // 使用 useNavigate 來獲取導航函數
+
+  const goHome = () => {
+    navigate('/HomePage');  // 導航回首頁
+  };
+
   return (
-    <div>
-      <button onClick={handlePunch}>打卡</button>
-      
-      <h2>打卡紀錄</h2>
-      <table border="1">
-        <thead>
-          <tr>
-            <th>日期</th>
-            <th>上班時間</th>
-            <th>下班時間</th>
-            <th>當日工時</th>
-            <th>當月總時數</th>
-          </tr>
-        </thead>
-        <tbody>
-          {attendanceRecords.map((record, index) => (
-            <tr key={index}>
-              <td>{record.date}</td>
-              <td>{record.startTime}</td>
-              <td>{record.endTime}</td>
-              <td>{record.dailyWorkHours}</td>
-              <td>{totalHours.toFixed(2)}</td>  {/* 顯示當月累積總時數，保留兩位小數 */}
+    <div className="content-section">
+      <h2 className="major">打卡系統</h2>
+      <div className="instructions">
+        <p>這是一個打卡系統，您可以通過此系統記錄您的上班和下班時間，並且得知當日的時數及當月累積時數。
+           請務必在上班前半小時打卡，以半小時制區間計算時數！</p>
+          <p>（可重複打多次卡，將以最早打卡時間作為上班時間，最晚打卡時間作為下班時間。）</p>
+        <ol>
+          <li>點擊「打卡」按鈕來記錄您的上班時間。</li>
+          <li>在結束工作後再次點擊「打卡」來記錄您的下班時間。</li>
+          <li>系統會自動計算當日的工作時數和當月累積的工作時數。</li>
+          <li>您可以查看每一天的打卡紀錄及總時數。</li>
+        </ol>
+      </div>
+
+      {/* 打卡按鈕 */}
+      <button onClick={handlePunch} className="button-primary">打卡</button>
+
+      {/* 打卡紀錄標題 */}
+      <h2 className="major">打卡紀錄</h2>
+
+      {/* 打卡紀錄表格 */}
+      <div className="table-wrapper">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>上班時間</th>
+              <th>下班時間</th>
+              <th>當日時數</th>
+              <th>當月總時數</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {attendanceRecords.map((record, index) => (
+              <tr key={index}>
+                <td>{record.date}</td>
+                <td>{record.startTime}</td>
+                <td>{record.endTime}</td>
+                <td>{record.dailyWorkHours.toFixed(2)}</td>
+                <td>{totalHours.toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* 回到首頁的按鈕 */}
+      <button onClick={goHome}>回到首頁</button>
     </div>
   );
 }

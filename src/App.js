@@ -1,72 +1,57 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import FinanceManager from './components/FinanceManager';
 import CalendarComponent from './components/Calendar';
 import AttendanceTracker from './components/AttendanceTracker';
 import LeaveScheduler from './components/LeaveScheduler';
 import Feedback from './components/Feedback';
-import HomePage from './pages/HomePage';
-import FinancePage from './pages/FinancePage';
-import CalendarPage from './pages/CalendarPage';
-import AttendancePage from './pages/AttendancePage';
-import LeaveSchedulerPage from './pages/LeaveSchedulerPage';
-import FeedbackPage from './pages/FeedbackPage';
-import './style.css';
+import Header from './components/Header';
+import HomePage from './pages/HomePage'; // 根據實際的路徑來修改
 
 
 function App() {
-  const [page, setPage] = useState('Finance');
-
-  const renderPage = () => {
-    switch (page) {
-      case 'Finance':
-        return <FinanceManager />;
-      case 'Calendar':
-        return <CalendarComponent />;
-      case 'Attendance':
-        return <AttendanceTracker />;
-      case 'LeaveScheduler':
-        return <LeaveScheduler />;
-      case 'Feedback':
-        return <Feedback />;
-      default:
-        return <FinanceManager />;
-    }
-  };
-
   return (
     <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/finance" element={<FinancePage />} />
-          <Route path="/calendar" element={<CalendarPage />} />
-          <Route path="/attendance" element={<AttendancePage />} />
-          <Route path="/leave-scheduler" element={<LeaveSchedulerPage />} />
-          <Route path="/feedback" element={<FeedbackPage />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-
-  return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <Header setPage={setPage} />
-          {/* Use react-router for navigation */}
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/finance" element={<FinancePage />} />
-            <Route path="/calendar" element={<CalendarPage />} />
-            <Route path="/attendance" element={<AttendancePage />} />
-            <Route path="/leave-scheduler" element={<LeaveSchedulerPage />} />
-            <Route path="/feedback" element={<FeedbackPage />} />
-          </Routes>
+      {/* 包裹住所有內容 */}
+      <div id="wrapper">
+        <header id="header">
+          <div className="logo">
+            <span className="icon fa-gem"></span>
+          </div>
+          <div className="content">
+            <div className="inner">
+              <h1>Employee-Management-System</h1>
+              <p className="welcome-message">歡迎來到員工管理系統，請選擇您想要前往的功能頁面：</p>
+            </div>
+          </div>
+          <nav>
+            <ul>
+              <li><Link to="/HomePage">Home</Link></li>
+              <li><Link to="/finance">FinanceManager</Link></li>
+              <li><Link to="/calendar">Calendar</Link></li>
+              <li><Link to="/attendance">AttendanceTracker</Link></li>
+              <li><Link to="/scheduler">LeaveScheduler</Link></li>
+              <li><Link to="/feedback">Feedback</Link></li>
+            </ul>
+          </nav>
         </header>
-        {/* Render the page based on state */}
-        <div>{renderPage()}</div>
+
+        {/* 渲染頁面內容 */}
+        <div id="main">
+          <Routes>
+            <Route path="/" element={<h1><HomePage /></h1>} />
+            <Route path="/finance" element={<FinanceManager />} />
+            <Route path="/calendar" element={<CalendarComponent />} />
+            <Route path="/attendance" element={<AttendanceTracker />} />
+            <Route path="/scheduler" element={<LeaveScheduler />} />
+            <Route path="/feedback" element={<Feedback />} />
+          </Routes>
+        </div>
+
+        {/* Footer */}
+        <footer id="footer">
+          <p className="copyright">&copy; Untitled. Design: HTML5 UP</p>
+        </footer>
       </div>
     </Router>
   );

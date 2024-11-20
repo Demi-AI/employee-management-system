@@ -1,6 +1,7 @@
 {
   "name": "employee-management-system",
   "version": "0.1.0",
+  "homepage": "https://Demi-AI.github.io/employee-management-system",
   "description": "A React-based employee management system with features like financial management, calendar, attendance, leave tracking, and feedback.",
   "license": "MIT",
   "main": "index.js",

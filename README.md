@@ -1,71 +1,48 @@
-# Getting Started with Create React App
+網站設計理念：
+    我們自己在打工的公司有打卡這個系統，但這個系統主要就只能上下班打卡，並沒有其他的功能可用。當主管上傳班表給我們的時候，我們還要另外打開自己的行事曆去記我們什麼時候要上班，劃假時還要另外去找主管說，這樣會比較浪費時間且實用性低。
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+設計原則：
+    1.以簡約、直觀，利用導航欄快速切換到別的頁面使用方式為主。
+    2.主要把我們關於工作會用到的東西（例如：上班日期、劃假日期、代辦事項等），全部放在同一個地方，這樣員工使用上會比較方便且快速。
 
-## Available Scripts
+技術選用：
+1.JavaScript:
+   - 功能: JavaScript 是實現網站互動和動態內容的核心語言。在我們的專案中，JavaScript 用來處理前端的邏輯，例如：
+     - 打卡系統：根據用戶的操作，記錄上班和下班時間，並自動計算當日的工時和累積總工時。
+     - 劃假系統：用戶可以在日曆中選擇劃假日期，並根據選擇的日期進行記錄。
+     - 任務管理：根據用戶對待辦事項的輸入，顯示任務狀態及更新，並幫助員工組織每日工作。
+   - JavaScript 同時負責與伺服器端進行交互，通過 AJAX 請求進行數據傳輸和更新。
 
-In the project directory, you can run:
+2.CSS:
+   - 功能: CSS 主要用來控制網頁的樣式和排版。我們用 CSS 來設計頁面的視覺效果，提升用戶體驗，使頁面不僅功能完善，也具備美觀的外觀。例如：
+     - 設計簡約、直觀的界面，讓員工可以快速上手。
+     - 利用 CSS 實現響應式設計，使網站在不同設備（如桌面、平板、手機）上都能提供良好的使用體驗。
+     - 加入動態效果（如按鈕的 hover 效果）和色彩搭配，使界面更加吸引人。
 
-### `npm start`
+3.HTML:
+   - 功能: HTML 是構建網站結構的標記語言。它負責網頁的骨架，決定頁面元素的排列和顯示方式。我們用 HTML 來：
+     - 設置頁面結構，例如表單、表格、按鈕等元素，用來收集用戶的打卡時間、請假日期和任務狀態。
+     - 創建頁面容器，設置網站的導航條和頁面間的跳轉功能（例如打卡頁、請假行事曆頁）。
+     - 結合其他技術（JavaScript 和 CSS），使網頁元素有更強的互動性和可視化效果。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4.React:
+   - 功能: React 是一個用於構建用戶界面的 JavaScript 庫，特別適合用於單頁應用（SPA）。React 可以幫助我們實現以下幾個功能：
+     - 組件化開發：React 可以將頁面拆分成不同的組件（例如打卡記錄、請假日曆、任務列表等），每個組件負責獨立的功能，這樣可以提高代碼的可維護性和可重用性。
+     - 動態更新：React 會根據用戶的操作動態更新頁面，無需刷新整個頁面。例如，用戶點擊「打卡」時，頁面會即時顯示打卡記錄和工時更新。
+     - 狀態管理：React 的 `useState` 和 `useEffect` 等 Hooks 可以管理應用狀態，如記錄打卡時間、管理待辦事項等。
+總結來說，這些技術組合能夠高效地實現動態交互、清晰的頁面結構、和美觀的設計，使我們的打卡、劃假、任務管理和財務功能順暢運行，並為員工提供一個集中的工作平台。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# employee-management-system
+規劃：
+此網站共分為六個頁面，除了首頁以外，以下為其餘五個頁面：
+1.財務管理系統頁面:
+    員工可以透過輸入當月的收入、支出、薪資，系統將會自動計算出當月的獎金、勞保費、健保費以及淨收入。計算結果會顯示在下方，並以長條圖呈現，方便使用者瀏覽。
+2.行事曆任務管理系統頁面：
+    員工可以自行註記上班日期，只要在行事曆中點擊任何一天，即可有不同顏色來方便閱覽上班日。
+    也能自行新增代辦事項，另外還有查看與更新代辦事項完成狀態的功能，我們可以查看每個日期的代辦事項，並手動更新代辦事項是否完成。
+3.打卡系統頁面：
+    員工可以通過此系統記錄上下班時間，但請務必在上班前半小時打卡，以半小時制區間計算時數。
+    此系統可重複打多次卡，將以最早打卡時間作為上班時間，最晚打卡時間作為下班時間，系統會自動計算當日的工作時數和當月累積的工作時數，以方便查看每一天的打卡紀錄及總時數。
+4.劃假行事曆系統頁面：
+    員工可以透過此行事曆自行劃假，而公司則可檢視完整的劃假行事曆，不用特別去公司找主管或傳訊息排假，在下方列表中也可以自己查看所有已選擇的劃假日期。
+5.反饋問題系統頁面：
+    如果員工在使用系統時遇到任何問題或有建議，可以透過表單進行反饋，讓公司知道問題內容及員工訴求。

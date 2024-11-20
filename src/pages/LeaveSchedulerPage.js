@@ -9,7 +9,6 @@ function LeaveSchedulerPage() {
       <h1>劃假行事曆</h1>
       <LeaveScheduler />
       <br />
-      <Link to="/">返回首頁</Link>
     </div>
   );
 }

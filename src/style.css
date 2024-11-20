@@ -1,158 +1,523 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Homepage.js區塊樣式 */
+.content-section {
+  margin: 20px auto;
+  padding: 20px;
+  
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 全局設置 */
+.home-page-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.home-page-links li {
+  margin-bottom: var(--spacing-medium);
+}
+
+.link-button {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: none;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.link-button:hover {
+  background-color: var(--accent-color);
+}
+
+.major {
+  font-size: var(--font-large);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-medium);
+  font-weight: bold;
+}
+
+/* Header.js區塊樣式 */
+.header-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-large);
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: none;
+  border-radius: var(--border-radius);
+  margin: 0 var(--spacing-small);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: var(--accent-color);
+}
+
 :root {
-  --primary-color: #004d99; /* 深藍色，專業且穩重 */
-  --secondary-color: #00aaff; /* 明亮的藍色，突顯互動 */
-  --background-color: #f4f6f8; /* 淺灰色背景，柔和護眼 */
-  --text-color: #333; /* 深色字體，提升可讀性 */
-  --accent-color: #ff6b6b; /* 紅色，用於警示或重要資訊 */
-
-  /* 字體大小 */
-  --font-small: 0.875rem;
-  --font-medium: 1rem;
-  --font-large: 1.25rem;
-  --font-title: 1.5rem;
-
-  /* 間距 */
+  --primary-color: #4a4d4f;  /* 藍色 */
+  --secondary-color: #8f8ea2;  /* 綠色 */
+  --accent-color: #8496bc;  /* 紅色 */
+  --font-medium: 16px;
   --spacing-small: 8px;
   --spacing-medium: 16px;
   --spacing-large: 24px;
-  --spacing-xlarge: 32px;
-
-  /* 圓角 */
   --border-radius: 8px;
 }
 
-/* 全局樣式 */
-body {
+/* FinanceManager.js區塊樣式 */
+.content-section {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 使用說明文字 */
+.instructions {
+  background-color: #c5c2b9;
+  border: 1px solid #c5c2b9;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #20201f;
+}
+
+.instructions p {
+  margin: 10px 0;
+  color: #20201f;
+}
+
+.instructions ol {
+  margin-left: 20px;
+  color: #20201f;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+  color: #20201f;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-large);
+  color: black; /* 設置輸入框中的文字顏色為黑色 */
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: var(--spacing-small);
+  color: #20201f;
+}
+
+.form-group input {
+  width: 100%;
+  padding: var(--spacing-small);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  color: black; /* 設置輸入框中的文字顏色為黑色 */
+}
+
+/* 計算按鈕 */
+.button-primary {
+  background-color: #aaacae;
+  color: rgb(28, 27, 27);
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;         /* 使用 inline-flex 來對齊內容 */
+  justify-content: center;      /* 水平置中 */
+  align-items: center;          /* 垂直置中 */
+  text-align: center;           /* 確保文字在水平方向上居中 */
+}
+
+.button-primary:hover {
+  background-color: #aaacae;
+}
+
+/* 計算結果區域 */
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* 圖表區域 */
+.recharts-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Calendar.js區塊樣式 */
+.workday {
+  background-color:#f0f0f0; /* 使用主題色的背景 */
+  color: #202020;
+  font-weight: bold;
+}
+/* 代辦事項區塊樣式 */
+.todo-section {
+  margin-top: 20px;
+  padding: var(--spacing-large);
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius);
+}
+
+/* 文字樣式：未完成 */
+.todo-text.not-completed {
+  font-size: 18px;
+  color: red; /* 未完成顯示紅色 */
+  transition: color 0.3s;
+}
+
+/* 文字樣式：已完成 */
+.todo-text.completed {
+  font-size: 18px;
+  color: green; /* 已完成顯示綠色 */
+  text-decoration: line-through; /* 添加刪除線 */
+  transition: color 0.3s;
+}
+
+/* 通用按鈕樣式 */
+.todo-button {
+  padding: 8px 12px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 按鈕樣式：未完成 */
+.button-pending {
+  background-color: #f8d7da; /* 淡紅色背景 */
+  color: #721c24; /* 深紅色文字 */
+}
+
+.button-pending:hover {
+  background-color: #f5c6cb; /* 更淺的紅色 */
+}
+
+/* 按鈕樣式：已完成 */
+.button-completed {
+  background-color: #d4edda; /* 淡綠色背景 */
+  color: #155724; /* 深綠色文字 */
+}
+
+.button-completed:hover {
+  background-color: #c3e6cb; /* 更淺的綠色 */
+}
+
+
+.form-control {
+  margin-right: 10px;
+  width: 80%;
+  border-width: 4px;        /* 設置邊框粗細為 4px */
+  border-style: solid;      /* 邊框樣式為實線 */
+  border-color: #20201f;    /* 邊框顏色為藍色 */
+}
+
+/* 使用說明文字 */
+.instructions {
+  background-color: #c5c2b9;
+  border: 1px solid #c5c2b9;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #20201f;
+}
+
+.instructions p {
+  margin: 10px 0;
+}
+
+.instructions ol {
+  margin-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+/* 主要容器樣式 */
+.calendar-container {
   font-family: Arial, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  overflow-x: hidden;
+  padding: 20px;
+  color: #20201f;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+/* 強制將日期文字顏色設為黑色 */
+/* 日期格子 */
+.calendar-cell {
+  color: black !important;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: black !important; /* 設置文字顏色為黑色 */
 }
 
-/* 主要按鈕 */
+/* 週末日期格子 */
+.calendar-cell.weekend {
+  color: black !important; /* 週末也設置為黑色 */
+}
+
+/* 當前日期 */
+.react-calendar__tile.selected-day {
+  background-color: #827e7d; /* 選中日期的背景色 */
+  color: #20201f;              /* 文字顏色 */
+  font-weight: bold;         /* 文字加粗 */
+  border-radius: 50%;        /* 圓形邊框 */
+}
+
+.react-calendar__tile.selected-day:hover {
+  background-color: #8496bc; /* 當選中日期被 hover 時的背景色 */
+}
+
+.content-section {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* AttendanceTracker.js區塊樣式 */
 .button-primary {
   background-color: var(--primary-color);
-  color: white;
+  color: rgb(25, 24, 24);
   padding: var(--spacing-small) var(--spacing-large);
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
+  display: inline-flex;         /* 使用 inline-flex 來對齊內容 */
+  justify-content: center;      /* 水平置中 */
+  align-items: center;          /* 垂直置中 */
+  text-align: center;           /* 確保文字在水平方向上居中 */
+}
+.button-primary:hover {
+  background-color: var(--secondary-color);
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-large);
+  border: 1px solid #202020; /* 添加整體表格邊框 */
+}
+
+.table th, .table td {
+  padding: var(--spacing-small);
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: black; /* 設置表格中的文字顏色為黑色 */
+  border: 1px solid #202020; /* 在每個表格單元格添加邊框 */
+
+}
+
+.table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  color: black; /* 設置表格中的文字顏色為黑色 */
+
+}
+
+.table-wrapper {
+  margin-top: var(--spacing-medium);
+  overflow-x: auto;
+}
+/* 統一容器樣式 */
+.container {
+  margin: 20px auto; /* 垂直和水平居中 */
+  padding: 20px; /* 內部邊距 */
+  background-color: #f9f9f9; /* 背景顏色 */
+  border-radius: var(--border-radius, 8px); /* 圓角 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+}
+
+
+/* 使用說明文字 */
+.instructions {
+  background-color: #c5c2b9;
+  border: 1px solid #c5c2b9;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #20201f;
+}
+
+.instructions p {
+  margin: 10px 0;
+}
+
+.instructions ol {
+  margin-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+/* LeaveScheduler.js區塊樣式 */
+/* 請假行事曆容器 */
+.content-section {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 日曆容器 */
+.calendar-container {
+  margin-top: var(--spacing-large);
+}
+
+/* 高亮選中的請假日期 */
+.react-calendar__tile.highlight {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: bold;
+}
+
+/* 請假摘要樣式 */
+.vacation-summary {
+  margin-top: var(--spacing-large);
+}
+
+.vacation-summary h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-small);
+  color: #20201f;
+}
+
+.vacation-summary ul {
+  font-size: var(--font-medium);
+  list-style-type: none;
+  padding: 0;
+  color:#20201f
+}
+
+.vacation-summary li {
+  font-size: var(--font-medium);
+  margin-bottom: var(--spacing-small);
+  color: #20201f;
+}
+
+/* 使用說明文字 */
+.instructions {
+  background-color: #c5c2b9;
+  border: 1px solid #c5c2b9;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #20201f;
+}
+
+.instructions p {
+  margin: 10px 0;
+}
+
+.instructions ol {
+  margin-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+/* 主要容器樣式 */
+.calendar-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* 強制將日期文字顏色設為黑色 */
+/* 日期格子 */
+.calendar-cell {
+  color: black !important;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: black !important; /* 設置文字顏色為黑色 */
+}
+
+/* 週末日期格子 */
+.calendar-cell.weekend {
+  color: black !important; /* 週末也設置為黑色 */
+}
+
+/* 當前日期 */
+.current-day {
+  background-color: #827e7d; /* 當前日期使用不同的顏色 */
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+/* Feedback.js區塊樣式 */
+.content-section {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.button-primary {
+  background-color: var(--primary-color);
+  color: rgb(15, 15, 15);
+  padding: var(--spacing-small) var(--spacing-large);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-flex;         /* 使用 inline-flex 來對齊內容 */
+  justify-content: center;      /* 水平置中 */
+  align-items: center;          /* 垂直置中 */
+  text-align: center;           /* 確保文字在水平方向上居中 */
 }
 
 .button-primary:hover {
   background-color: var(--secondary-color);
-}
-
-/* 標題 */
-h1, h2, h3 {
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-medium);
-  font-weight: bold;
-}
-
-h1 {
-  font-size: var(--font-title);
-}
-
-h2 {
-  font-size: 1.25rem;
-}
-
-h3 {
-  font-size: var(--font-medium);
-}
-
-/* 導覽欄 */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-medium) 0;
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 var(--spacing-medium);
-  font-weight: bold;
-}
-
-.navbar a:hover {
-  color: var(--secondary-color);
-}
-
-/* 側邊欄 */
-.sidebar {
-  width: 250px;
-  background-color: #003366;
-  padding: var(--spacing-large);
-  color: white;
-  position: fixed;
-  height: 100vh;
-}
-
-.sidebar a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: var(--spacing-small) 0;
-}
-
-.sidebar a:hover {
-  background-color: var(--primary-color);
-  padding-left: var(--spacing-small);
-}
-
-/* 內容區 */
-.main-content {
-  margin-left: 260px;
-  padding: var(--spacing-large);
-}
-
-/* 卡片 */
-.card {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: var(--border-radius);
-  padding: var(--spacing-large);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: var(--spacing-large);
-}
-
-.card-title {
-  font-size: var(--font-large);
-  font-weight: bold;
-  color: var(--text-color);
-  margin-bottom: var(--spacing-medium);
-}
-
-/* 表單 */
-.form-group {
-  margin-bottom: var(--spacing-medium);
-}
-
-.form-group label {
-  font-weight: bold;
-  color: var(--primary-color);
 }
 
 .form-control {
@@ -161,180 +526,260 @@ h3 {
   border: 1px solid #ddd;
   border-radius: var(--border-radius);
   margin-top: var(--spacing-small);
+  color: black; /* 設置輸入框中的文字顏色為黑色 */
 }
 
-/* 圖表 */
-.chart-container {
-  width: 100%;
-  background-color: white;
-  padding: var(--spacing-large);
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: var(--spacing-large);
-}
-
-/* 表格 */
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: var(--spacing-large);
-}
-
-.table th, .table td {
-  padding: var(--spacing-small);
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.table th {
-  background-color: var(--primary-color);
-  color: white;
+.major {
+  font-size: var(--font-large);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-medium);
   font-weight: bold;
 }
 
-.table tr:hover {
-  background-color: #f1f1f1;
+/* 使用說明文字 */
+.instructions {
+  background-color: #c5c2b9;
+  border: 1px solid #c5c2b9;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #20201f;
 }
 
-/* 主容器 */
-.calendar-container {
+.instructions p {
+  margin: 10px 0;
+}
+
+.instructions ol {
+  margin-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+/* App.js區塊樣式*/
+/* 全局樣式*/
+:root {
+  --primary-color: #202020;  /* 藍色 */
+  --secondary-color: #8f8ea2;  /* 綠色 */
+  --accent-color: #8496bc;  /* 紅色 */
+  --font-large: 24px;
+  --font-medium: 18px;
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  --border-radius: 8px;
+  --font-family: Arial, sans-serif;
+}
+
+/* 全局網站背景圖片設置 */
+body {
+  background-image: url('bg.jpg'); /* 替換為您的圖片路徑 */
+  background-size: cover; /* 讓圖片覆蓋整個視窗 */
+  background-position: center; /* 圖片居中顯示 */
+  background-repeat: no-repeat; /* 禁止重複 */
+  min-height: 100vh; /* 保證至少覆蓋全屏高度 */
+  margin: 0; /* 移除默認邊距 */
+  font-family: Arial, sans-serif; /* 確保文字樣式正常顯示 */
+}
+
+/* 小型裝置 (手機) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* 減小字體大小 */
+    padding: 10px; /* 增加內邊距 */
+  }
+  
+  .container {
+    padding: 10px;
+  }
+
+  /* 改變其他元素的樣式，例如調整寬度、隱藏某些不必要的內容等 */
+  .sidebar {
+    display: none; /* 隱藏側邊欄 */
+  }
+}
+
+
+/* 設置歡迎信息的樣式 */
+.welcome-message {
+  font-size: 50px; /* 調整文字大小為更大一點 */
+  color: #ffffff; /* 設置文字顏色為白色 */
+  font-weight: 700;   /* 設置字體粗度 */
+  text-align: center; /* 文字居中 */
+  margin: 20px 0; /* 添加上下外邊距 */
+}
+
+/* 頁面容器 */
+.App {
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
+}
+
+/* 頁面標題 */
+.App-header {
+  background-color: var(--primary-color);
+  padding: var(--spacing-medium);
+  color: white;
+  text-align: center;
+}
+
+/* 主要內容區域 */
+.main-content {
+  flex-grow: 1;
+  padding: var(--spacing-medium);
+}
+
+/* 按鈕樣式 */
+button {
+  padding: var(--spacing-small) var(--spacing-medium);
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  border-width: 1.5px;        /* 設置邊框粗細為 4px */
+  border-style: solid;      /* 邊框樣式為實線 */
+  border-color: #5c5c5a;    /* 邊框顏色為藍色 */
+  display: inline-flex;         /* 使用 inline-flex 來對齊內容 */
+  justify-content: center;      /* 水平置中 */
+  align-items: center;          /* 垂直置中 */
+  text-align: center;           /* 確保文字在水平方向上居中 */
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+/* 強制全局文字顏色為黑色 */
+input, textarea, select{
+  color: rgb(41, 41, 41) !important;
+}
+
+/* 輸入框和表格特定樣式 */
+input, textarea, select {
+  color: rgb(41, 41, 41) !important;
+  background-color: white !important;
+}
+
+table, td, th {
+  color: rgb(41, 41, 41) !important;
+}
+
+/* 日曆容器 */
+.calendar-container {
+  background-color: white !important;
+}
+
+.todo-section {
+  background-color: white !important;
+}
+
+/* 日曆前後按鍵文字顏色 */
+.react-calendar__navigation__label,
+.react-calendar__navigation__arrow {
+  color: rgb(41, 41, 41) !important;
+}
+
+.react-calendar__navigation button {
+  color: rgb(41, 41, 41) !important;
+  background-color: white !important;
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #f0f0f0 !important;
+}
+
+/* 表格標題欄位樣式 */
+.table th {
+  background-color: #969696 !important; /* 淺灰色背景 */
+  color: rgb(41, 41, 41) !important; /* 黑色字體 */
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* 行事曆日期文字顏色 */
+.react-calendar__tile {
+  color: #20201f !important;
+}
+
+/* 行事曆標題文字顏色 */
+.react-calendar__navigation button {
+  color: #20201f !important;
+}
+
+/* 週標題文字顏色 */
+.react-calendar__month-view__weekdays {
+  color: #20201f !important;
+}
+
+/* 行事曆背景 */
+.react-calendar {
+  background-color: white !important;
+}
+
+.calendar-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workday {
   margin-top: 20px;
 }
 
-/* 上班日區塊 */
-.workday-section {
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-  background-color: #f9f9f9;
+.selected-day {
+  background-color: #ffeeba !important; /* 黃色高亮背景 */
+  border-radius: 50%;
+  font-weight: bold;
 }
 
-.workday-section h3 {
-  color: #333;
-  font-size: 18px;
-}
-
-.workday-section h4 {
-  color: #333;
-  font-size: 16px;
-}
-
-.workday-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.workday-section li {
-  font-size: 16px;
-  color: #555;
-}
-
-/* 代辦事項區塊 */
 .todo-section {
   margin-top: 20px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
   background-color: #f9f9f9;
-}
-
-.todo-section h3 {
-  color: #333;
-  font-size: 18px;
-}
-
-input[type="text"] {
-  padding: 10px;
-  width: 200px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  outline: none;
-}
-
-input[type="text"]:focus {
-  border-color: #4CAF50;
-}
-
-/* 代辦事項表格 */
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-  background-color: #fff;
   border-radius: 8px;
 }
 
-th, td {
-  padding: 12px;
-  text-align: left;
-  border: 1px solid #ddd;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
 }
 
-th {
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.table th {
   background-color: #f4f4f4;
   font-weight: bold;
 }
 
-td {
-  font-size: 16px;
-}
-
-span[style*="green"] {
-  color: green;
-}
-
-span[style*="red"] {
-  color: red;
-}
-
-/* 上班日標記 */
-.react-calendar__tile.workday {
-  background-color: #e0e0e0;
-}
-
-
-/* 警示文字 */
-.alert {
-  background-color: var(--accent-color);
-  color: white;
-  padding: var(--spacing-small) var(--spacing-large);
-  border-radius: var(--border-radius);
-  margin-bottom: var(--spacing-large);
+.button-pending {
+  background-color: #eb707a;
+  color: #721c24;
   font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-/* 響應式設計 */
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 0;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .navbar a {
-    margin: 0 var(--spacing-small);
-  }
-}
-
-
-/* 主頁的樣式 */
-.homepage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
+.button-completed {
+  background-color: #76da8d;
+  color: #155724;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
