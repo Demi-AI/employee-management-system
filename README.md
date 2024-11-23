@@ -1,4 +1,6 @@
-**網站設計理念：**  
+**第二組期中專案-Employee Management System**
+GitHub Pages:https://demi-ai.github.io/employee-management-system/
+**網站設計概念：**  
 我們自己在打工的公司有打卡系統，但這個系統主要只能進行上下班打卡，並沒有其他功能。當主管上傳班表時，我們需要額外打開行事曆來記錄上班日期，劃假時也需聯絡主管，這樣不僅浪費時間，還降低了系統的實用性。
 
 **設計原則：**  
