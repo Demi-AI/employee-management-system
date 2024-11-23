@@ -826,15 +826,14 @@ table, td, th {
 
 /* 上班日的样式 */
 .workday {
-  background-color: #4caf50; /* 上班日背景色绿色 */
+  background-color: #ffffff; /* 上班日背景色绿色 */
   color: white;              /* 文字为白色 */
   font-weight: bold;
-  border-radius: 50%;        /* 圆形边框 */
 }
 
-/* 上班日 hover 时的背景色 */
-.react-calendar__tile.workday:hover {
-  background-color: #388e3c;
+/* 上班日的背景色 */
+.react-calendar__tile.workday {
+  background-color: #aa8ebb;
 }
 
 /* 选中日期的样式 */

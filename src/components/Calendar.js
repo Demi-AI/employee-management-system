@@ -44,9 +44,9 @@ function CalendarComponent() {
   const handleWorkdaySelection = (date) => {
     const dateString = date.toDateString();
     if (workdays.includes(dateString)) {
-      setWorkdays(workdays.filter((day) => day !== dateString));
+      setWorkdays(workdays.filter((day) => day !== dateString)); // 如果是上班日，則移除
     } else {
-      setWorkdays([...workdays, dateString]);
+      setWorkdays([...workdays, dateString]); // 否則加入
     }
   };
 
@@ -102,9 +102,9 @@ function CalendarComponent() {
             const isWorkday = workdays.includes(date.toDateString());
             const isSelected = selectedDate && selectedDate.toDateString() === date.toDateString();
             return isSelected
-              ? 'selected-day'
+              ? 'selected-day' // 已選中，設定背景色
               : isWorkday
-              ? 'workday'
+              ? 'workday' // 上班日，設定正常背景色
               : null;
           }}
         />
@@ -168,3 +168,4 @@ function CalendarComponent() {
 }
 
 export default CalendarComponent;
+
