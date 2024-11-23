@@ -171,11 +171,7 @@ p {
 }
 
 /* Calendar.js區塊樣式 */
-.workday {
-  background-color:#f0f0f0; /* 使用主題色的背景 */
-  color: #202020;
-  font-weight: bold;
-}
+
 /* 代辦事項區塊樣式 */
 .todo-section {
   margin-top: 20px;
@@ -782,4 +778,66 @@ table, td, th {
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+/* 基础样式 */
+.calendar-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #ffffff; /* 背景色为白色 */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+.major {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* 说明文字 */
+.instructions {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666666;
+}
+
+/* 日历样式 */
+.react-calendar {
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.react-calendar__tile {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 上班日的样式 */
+.workday {
+  background-color: #4caf50; /* 上班日背景色绿色 */
+  color: white;              /* 文字为白色 */
+  font-weight: bold;
+  border-radius: 50%;        /* 圆形边框 */
+}
+
+/* 上班日 hover 时的背景色 */
+.react-calendar__tile.workday:hover {
+  background-color: #388e3c;
+}
+
+/* 选中日期的样式 */
+.selected-day {
+  background-color: #a6b9d5;
 }

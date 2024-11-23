@@ -18,10 +18,18 @@ function VacationCalendar() {
   const [date, setDate] = useState(new Date()); // 記錄當前選中的日期
   const [vacationDays, setVacationDays] = useState(loadVacationDays()); // 請假日期，從 localStorage 載入
 
+  // 將日期轉換為本地格式 YYYY-MM-DD
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 月份從0開始，所以加1
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   // 當選擇日期時，將該日期加入或移除請假日期
   const handleDateChange = (newDate) => {
     setDate(newDate);
-    const dateString = newDate.toISOString().split('T')[0]; // 使用 ISO 格式 YYYY-MM-DD
+    const dateString = formatDate(newDate); // 使用本地格式 YYYY-MM-DD
     if (vacationDays.includes(dateString)) {
       // 移除已選日期
       const updatedVacationDays = vacationDays.filter((day) => day !== dateString);
@@ -59,7 +67,7 @@ function VacationCalendar() {
           onChange={handleDateChange}
           value={date}
           tileClassName={({ date }) =>
-            vacationDays.includes(date.toISOString().split('T')[0]) ? 'highlight' : null
+            vacationDays.includes(formatDate(date)) ? 'highlight' : null
           }
         />
       </div>
